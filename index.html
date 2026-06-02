@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RIT Chatbot – Rajarambapu Institute of Technology</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <div class="app-wrapper">
+
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-mark">R</div>
+                <div>
+                    <div class="sidebar-title">RIT Assistant</div>
+                    <div class="sidebar-sub">Ishwarpur, Sangli</div>
+                </div>
+            </div>
+            <nav class="module-nav">
+                <button class="mod-btn active" onclick="setModule('general',this)">🏫 General Info</button>
+                <button class="mod-btn" onclick="setModule('admission',this)">📋 Admission</button>
+                <button class="mod-btn" onclick="setModule('courses',this)">📚 Courses</button>
+                <button class="mod-btn" onclick="setModule('exam',this)">📝 Exam Info</button>
+                <button class="mod-btn" onclick="setModule('timetable',this)">🗓️ Timetable</button>
+                <button class="mod-btn" onclick="setModule('notice',this)">📢 Notice Board</button>
+                <button class="mod-btn" onclick="setModule('faculty',this)">👨‍🏫 Faculty</button>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="/admin" class="admin-link">⚙️ Admin Panel</a>
+            </div>
+        </aside>
+
+        <main class="chat-main">
+            <header class="chat-header">
+                <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+                <div class="header-bot">
+                    <div class="bot-avatar">R</div>
+                    <div>
+                        <div class="header-name">RIT Chatbot</div>
+                        <div class="header-status">● Online</div>
+                    </div>
+                </div>
+                <div class="header-badge" id="header-badge">General Info</div>
+            </header>
+
+            <div class="messages-area" id="messages-area"></div>
+            <div class="chips-area" id="chips-area"></div>
+
+            <div class="input-area">
+                <input type="text" id="user-input" placeholder="Ask anything about RIT College…" autocomplete="off" />
+                <button class="send-btn" onclick="sendMessage()">➤</button>
+            </div>
+        </main>
+    </div>
+    <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+</body>
+
+</html>

@@ -1,2 +1,36 @@
-# rit-chatbot
-RIT-Chatbot is a Flask-based web application that provides instant college-related information to students, including admissions, courses, eligibility, fee structure, exams, and results through an interactive chatbot interface.
+# RIT Chatbot Website
+
+This is a Flask-based chatbot website for Rajarambapu Institute of Technology.
+
+## Requirements
+
+- Python 3.8+
+- Flask
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+## Run the website
+
+```bash
+python app.py
+```
+
+Then open:
+
+```
+http://127.0.0.1:5000/
+```
+
+## Admin panel
+
+Visit:
+
+```
+http://127.0.0.1:5000/admin
+```
+
+Custom FAQs and notices are stored in `data/custom_data.json`.

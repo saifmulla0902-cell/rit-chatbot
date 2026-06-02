@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel – RIT Chatbot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+</head>
+
+<body class="admin-body">
+    <div class="admin-wrapper">
+
+        <header class="admin-top">
+            <div style="display:flex;align-items:center;gap:12px">
+                <div class="logo-mark">R</div>
+                <div>
+                    <div style="font-size:18px;font-weight:700;color:#fff">RIT Admin Panel</div>
+                    <div style="font-size:12px;color:rgba(255,255,255,0.6)">Chatbot Management</div>
+                </div>
+            </div>
+            <a href="/" class="back-btn">← Back to Chatbot</a>
+        </header>
+
+        <div class="admin-grid">
+
+            <div class="admin-card">
+                <h2 class="card-title">➕ Add New Q&amp;A</h2>
+                <p class="card-desc">Add custom questions to the knowledge base.</p>
+                <div class="form-group">
+                    <label>Question</label>
+                    <input type="text" id="faq-q" placeholder="Enter question…" />
+                </div>
+                <div class="form-group">
+                    <label>Answer</label>
+                    <textarea id="faq-a" rows="4" placeholder="Enter answer…"></textarea>
+                </div>
+                <button class="btn-primary" onclick="addFAQ()">✅ Add Q&amp;A</button>
+                <div id="faq-msg" class="form-msg"></div>
+            </div>
+
+            <div class="admin-card">
+                <h2 class="card-title">📢 Post Notice</h2>
+                <p class="card-desc">Post notices visible in the chatbot.</p>
+                <div class="form-group">
+                    <label>Notice Text</label>
+                    <textarea id="notice-text" rows="4" placeholder="Enter notice…"></textarea>
+                </div>
+                <button class="btn-primary" onclick="addNotice()">📌 Post Notice</button>
+                <div id="notice-msg" class="form-msg"></div>
+                <hr style="margin:16px 0;border-color:#eee">
+                <h3 style="font-size:14px;font-weight:600;margin-bottom:10px">Current Notices</h3>
+                <div id="notices-list">Loading…</div>
+            </div>
+
+            <div class="admin-card full-width">
+                <h2 class="card-title">📋 Manage FAQs</h2>
+                <div id="faqs-list">Loading…</div>
+            </div>
+
+            <div class="admin-card full-width nlp-card">
+                <h2 class="card-title">🧠 NLP Engine – How It Works</h2>
+                <div class="nlp-grid">
+                    <div class="nlp-step">
+                        <div class="nlp-num">1</div>
+                        <div>
+                            <div class="nlp-name">Text Preprocessing</div>
+                            <div class="nlp-desc">Lowercase + remove punctuation</div>
+                        </div>
+                    </div>
+                    <div class="nlp-step">
+                        <div class="nlp-num">2</div>
+                        <div>
+                            <div class="nlp-name">Tokenization</div>
+                            <div class="nlp-desc">Split text into word tokens</div>
+                        </div>
+                    </div>
+                    <div class="nlp-step">
+                        <div class="nlp-num">3</div>
+                        <div>
+                            <div class="nlp-name">Stop Word Removal</div>
+                            <div class="nlp-desc">Remove common words (is, the…)</div>
+                        </div>
+                    </div>
+                    <div class="nlp-step">
+                        <div class="nlp-num">4</div>
+                        <div>
+                            <div class="nlp-name">TF-IDF Vectorization</div>
+                            <div class="nlp-desc">Score tokens by frequency & rarity</div>
+                        </div>
+                    </div>
+                    <div class="nlp-step">
+                        <div class="nlp-num">5</div>
+                        <div>
+                            <div class="nlp-name">Cosine Similarity</div>
+                            <div class="nlp-desc">Measure query-answer similarity</div>
+                        </div>
+                    </div>
+                    <div class="nlp-step">
+                        <div class="nlp-num">6</div>
+                        <div>
+                            <div class="nlp-name">Intent Classification</div>
+                            <div class="nlp-desc">Naive Bayes style best match</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/admin.js') }}"></script>
+</body>
+
+</html>
